@@ -4,13 +4,17 @@ module.exports = {
   theme: {
     extend: {
       minWidth: { "3/10": "30%" },
+      transitionDuration: { 6000: "6s" },
       margin: { "6px": "6px" },
+      fontFamily: { "open-condense": ['"Open Sans Condensed"', "serif"] },
     },
   },
   variants: {
     extend: {
       borderWidth: ["first", "last"],
       margin: ["first", "last"],
+      scale: ["group-hover"],
+      cursor: ["hover"],
     },
   },
   plugins: [],

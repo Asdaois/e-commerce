@@ -1,9 +1,9 @@
 import React from "react";
-import Homepage from "./components/Homepage.component";
+import Homepage from "./pages/homepage/Homepage.component";
 
 function App() {
   return (
-    <div className="bg-gray-200">
+    <div className="font-open-condense">
       <Homepage />
     </div>
   );
