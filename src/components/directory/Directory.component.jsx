@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import MenuItem from "../menu-item/MenuItem.component";
-import directory from "./directory.data";
+import SECTIONS_DATA from "./directory.data";
 
 function Directory() {
   // eslint-disable-next-line
-  const [sections, setSections] = useState(directory);
+  const [sections, setSections] = useState(SECTIONS_DATA);
 
   return (
     <div className="w-full flex flex-wrap justify-between">

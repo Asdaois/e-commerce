@@ -20,7 +20,7 @@ function MenuItem({ title = "", imageUrl, size = "", linkUrl = "" }) {
         className="bg-center bg-cover w-full h-full transform 
         group-hover:scale-110 transition-transform duration-6000"
         style={{ backgroundImage: `url(${imageUrl})` }}
-      ></div>
+      />
       {/*"content"*/}
       <div
         className="h-24 px-6 py-0 flex flex-col items-center justify-center  
