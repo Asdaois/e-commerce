@@ -3,6 +3,7 @@ import CollectionPreview from "../../components/collection-preview/CollectionPre
 import SHOP_DATA from "./shopPage.data";
 
 function ShopPage() {
+  // eslint-disable-next-line
   const [collections, setCollections] = useState(SHOP_DATA);
   return (
     <div className="shop-page">
