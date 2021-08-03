@@ -9,9 +9,9 @@ export default function Header() {
       <Link to="/" className="logo-container h-full w-16 p-6">
         <Logo className="logo block relative m-auto" />
       </Link>
-      <div className="options w-1/2 h-full flex items-center justify-end">
-        <Option to="/shop" name="Shop" />
-        <Option to="/shop" name="Contact" />
+      <div className="options w-1/2 h-full flex items-center justify-end font-thin tracking-wider">
+        <Option to="/shop" name="SHOP" />
+        <Option to="/shop" name="CONTACT" />
       </div>
     </div>
   );
