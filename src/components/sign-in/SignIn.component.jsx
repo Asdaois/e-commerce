@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { signInWithGoogle } from "../../firebase/firebase.utils";
 import CustomButton from "../custon-buttom/CustomButton.component";
 import FormInput from "../form-input/FormInput.component";
 
@@ -37,7 +38,16 @@ export default function SignIn() {
           onChange={handleChange}
           required
         />
-        <CustomButton type="submit">Sign in</CustomButton>
+        <div className="flex justify-between">
+          <CustomButton type="submit">Sign in</CustomButton>
+          <CustomButton
+            onClick={signInWithGoogle}
+            type="button"
+            isGoogleSignIn={true}
+          >
+            Google
+          </CustomButton>
+        </div>
       </form>
     </div>
   );
