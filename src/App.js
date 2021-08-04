@@ -4,6 +4,7 @@ import Header from "./components/header/Header.component";
 import Authentication from "./pages/authentication/Authentication.component";
 import Homepage from "./pages/home/Homepage.component";
 import ShopPage from "./pages/shop/ShopPage.component";
+import "./tailwind.css";
 
 function App() {
   return (
