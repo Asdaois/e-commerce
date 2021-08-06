@@ -18,16 +18,5 @@ module.exports = {
       },
     },
   },
-  variants: {
-    extend: {
-      borderWidth: ["first", "last"],
-      margin: ["first", "last"],
-      scale: ["group-hover"],
-      cursor: ["hover"],
-      textColor: ["group-focus"],
-      inset: ["group-focus", "focus-within", "first"],
-      fontSize: ["group-focus", "focus-within"],
-    },
-  },
   plugins: [],
 };

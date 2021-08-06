@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Route, Switch } from "react-router-dom";
 import Header from "./components/header/Header.component";
-import { auth } from "./firebase/firebase.utils";
+import { auth, createUserProfileDocument } from "./firebase/firebase.utils";
 import Authentication from "./pages/authentication/Authentication.component";
 import Homepage from "./pages/home/Homepage.component";
 import ShopPage from "./pages/shop/ShopPage.component";
@@ -11,8 +11,17 @@ function App() {
   const [currentUser, setCurrentUSer] = useState(null);
 
   useEffect(() => {
-    const unsuscribe = auth.onAuthStateChanged((user) => {
-      setCurrentUSer(user);
+    const unsuscribe = auth.onAuthStateChanged(async (userAuth) => {
+      if (userAuth) {
+        const userRef = await createUserProfileDocument(userAuth);
+        userRef.onSnapshot((snapShot) => {
+          setCurrentUSer({
+            id: snapShot.id,
+            ...snapShot.data(),
+          });
+        });
+      }
+      setCurrentUSer(userAuth);
     });
 
     return () => {
@@ -24,7 +33,7 @@ function App() {
   }, [currentUser]);
 
   return (
-    <div className="font-open-condense py-5 px-16">
+    <div className="px-16 py-5 font-open-condense">
       <Header currentUser={currentUser} />
       <Switch>
         <Route exact path={"/"} component={Homepage} />

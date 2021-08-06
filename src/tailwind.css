@@ -694,10 +694,6 @@ video {
   height: 95%;
 }
 
-.h-5\/100 {
-  height: 5%;
-}
-
 .h-12 {
   height: 3rem;
 }
@@ -909,11 +905,6 @@ video {
   font-family: "Open Sans Condensed", serif;
 }
 
-.text-lg {
-  font-size: 1.125rem;
-  line-height: 1.75rem;
-}
-
 .text-3xl {
   font-size: 1.875rem;
   line-height: 2.25rem;
@@ -922,6 +913,11 @@ video {
 .text-base {
   font-size: 1rem;
   line-height: 1.5rem;
+}
+
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
 }
 
 .text-xs {
@@ -937,10 +933,6 @@ video {
 .text-2xl {
   font-size: 1.5rem;
   line-height: 2rem;
-}
-
-.font-extralight {
-  font-weight: 200;
 }
 
 .font-bold {
@@ -1062,14 +1054,14 @@ video {
   background-color: rgba(53, 122, 232, var(--tw-bg-opacity));
 }
 
-.hover\:text-black:hover {
-  --tw-text-opacity: 1;
-  color: rgba(0, 0, 0, var(--tw-text-opacity));
-}
-
 .hover\:text-white:hover {
   --tw-text-opacity: 1;
   color: rgba(255, 255, 255, var(--tw-text-opacity));
+}
+
+.hover\:text-black:hover {
+  --tw-text-opacity: 1;
+  color: rgba(0, 0, 0, var(--tw-text-opacity));
 }
 
 .focus\:outline-none:focus {

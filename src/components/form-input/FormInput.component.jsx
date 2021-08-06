@@ -2,7 +2,7 @@ import React from "react";
 
 export default function FormInput({ label, handleChange, ...props }) {
   return (
-    <div className="group relative my-11 mx-0 w-full">
+    <div className="relative w-full mx-0 group my-11">
       <input
         onChange={handleChange}
         placeholder=" "

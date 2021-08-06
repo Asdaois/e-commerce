@@ -10,11 +10,11 @@ export default function Header({ currentUser }) {
   };
 
   return (
-    <div className="header w-full h-20 flex justify-between mb-6">
-      <Link to="/" className="logo-container h-full w-16 p-6">
-        <Logo className="logo block relative m-auto" />
+    <div className="flex justify-between w-full h-20 mb-6 header">
+      <Link to="/" className="w-16 h-full p-6 logo-container">
+        <Logo className="relative block m-auto logo" />
       </Link>
-      <div className="options w-1/2 h-full flex items-center justify-end font-thin tracking-wider">
+      <div className="flex items-center justify-end w-1/2 h-full font-thin tracking-wider options">
         <Option to="/shop" name="SHOP" />
         <Option to="/shop" name="CONTACT" />
         {DecideSignAction(currentUser, signOut)}

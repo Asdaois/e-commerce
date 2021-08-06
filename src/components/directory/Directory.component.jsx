@@ -7,7 +7,7 @@ function Directory() {
   const [sections, setSections] = useState(SECTIONS_DATA);
 
   return (
-    <div className="w-full flex flex-wrap justify-between">
+    <div className="flex flex-wrap justify-between w-full">
       {sections.map(({ id, ...section }) => {
         return <MenuItem key={id} {...section} />;
       })}

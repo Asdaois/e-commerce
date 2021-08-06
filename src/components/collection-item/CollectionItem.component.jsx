@@ -1,5 +1,5 @@
 import React from "react";
-
+import "./collection-item.css";
 export default function CollectionItem({
   id,
   name = "",
@@ -7,15 +7,12 @@ export default function CollectionItem({
   imageUrl = "",
 }) {
   return (
-    <div className="collection-item w-1/5 flex flex-col items-center h-22">
+    <div className="flex flex-col items-center w-1/5 collection-item h-22">
       <div
-        className="image w-full h-95/100 bg-cover bg-center mb-1"
+        className="w-full mb-1 bg-center bg-cover image h-95/100"
         style={{ backgroundImage: `url(${imageUrl})` }}
       />
-      <div
-        className="collection-footer w-full h-5/100 justify-between flex 
-        text-lg font-extralight"
-      >
+      <div className="collection-footer ">
         <span className="name">{name}</span>
         <span className="price">{price}</span>
       </div>
