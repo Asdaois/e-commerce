@@ -28,6 +28,7 @@ function App() {
       unsuscribe();
     };
   }, []);
+
   useEffect(() => {
     console.log(currentUser ? true : false);
   }, [currentUser]);
