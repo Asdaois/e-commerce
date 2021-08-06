@@ -1,16 +1,25 @@
 import React, { useState } from "react";
-import { signInWithGoogle } from "../../firebase/firebase.utils";
+import { auth, signInWithGoogle } from "../../firebase/firebase.utils";
 import CustomButton from "../custon-buttom/CustomButton.component";
 import FormInput from "../form-input/FormInput.component";
 
+const initialState = {
+  email: "",
+  password: "",
+};
 export default function SignIn() {
-  const [state, setState] = useState({ email: "", password: "" });
+  const [state, setState] = useState({ ...initialState });
 
-  function handleSubmit(event = new Event()) {
+  const handleSubmit = async (event = new Event()) => {
     event.preventDefault();
-
+    try {
+      await auth.signInWithEmailAndPassword(state.email, state.password);
+      setState({ ...initialState });
+    } catch (error) {
+      console.log(error);
+    }
     setState({ email: "", password: "" });
-  }
+  };
 
   function handleChange(event = new Event()) {
     const { value, name } = event.target;
@@ -18,7 +27,7 @@ export default function SignIn() {
   }
 
   return (
-    <div className="sign-in flex flex-col w-1/3-vw ">
+    <div className="flex flex-col sign-in w-1/3-vw ">
       <h2 className="my-3 text-2xl font-extrabold">I already have a account</h2>
       <span className="">Sign in with your email and password</span>
       <form action="" className="" onSubmit={handleSubmit}>
