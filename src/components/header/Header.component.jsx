@@ -1,10 +1,11 @@
 import React from "react";
+import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { ReactComponent as Logo } from "../../assets/crown.svg";
 import { auth } from "../../firebase/firebase.utils";
 import Option from "./Option.component";
 
-export default function Header({ currentUser }) {
+function Header({ currentUser }) {
   const signOut = () => {
     auth.signOut();
   };
@@ -29,3 +30,9 @@ function DecideSignAction(currentUser = {}, signOut) {
   }
   return <Option to="/signin" name="SIGN IN" />;
 }
+
+const mapStateToProps = (state) => ({
+  currentUser: state.user.currentUser,
+});
+
+export default connect(mapStateToProps)(Header);
