@@ -752,10 +752,6 @@ video {
   min-width: 30%;
 }
 
-.max-w-\[70vw\] {
-  max-width: 70vw;
-}
-
 .max-w-\[850px\] {
   max-width: 850px;
 }
@@ -1147,3 +1143,5 @@ video {
   --tw-text-opacity: 1;
   color: rgba(82, 82, 91, var(--tw-text-opacity));
 }
+
+@import url("./components/custon-buttom/custom-button.css");
