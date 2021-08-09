@@ -13,7 +13,6 @@ export default function SignUp() {
   const [state, setState] = useState({ ...initialState });
 
   const handleSubmit = async (e = new Event()) => {
-    console.log("Is sumbiting");
     e.preventDefault();
     if (state.password !== state.confirmPassword) {
       alert("Password don't match!");

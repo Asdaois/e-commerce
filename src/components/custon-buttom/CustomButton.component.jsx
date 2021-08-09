@@ -5,14 +5,17 @@ export default function CustomButton({
   children,
   isGoogleSignIn,
   addClass,
+  inverted,
   ...props
 }) {
   return (
     <button
-      className={`${addClass} block w-auto h-13 py-0 text-base font-bold leading-10 tracking-wide text-white uppercase bg-black border border-transparent border-solid cursor-pointer custom-button min-w-167px px-9 hover:bg-white hover:border-subColor-900 ${
+      className={`${addClass} block w-auto h-13 py-0 text-base font-bold leading-10 tracking-wide uppercase  border border-transparent border-solid cursor-pointer custom-button min-w-167px px-9  ${
         isGoogleSignIn
-          ? "bg-[#4285F4] text-white hover:bg-[#357ae8] border-none hover:text-white"
-          : "hover:text-black"
+          ? "bg-[#4285F4] text-white hover:bg-[#357ae8]  hover:text-white"
+          : inverted
+          ? "hover:border-white text-black bg-white hover:text-white hover:bg-black border"
+          : "hover:border-subColor-900 text-white bg-black hover:text-black  hover:bg-white"
       }`}
       {...props}
     >

@@ -9,8 +9,8 @@ export default function CollectionPreview({ title = "", items = [] }) {
       <div className="flex justify-between preview">
         {items
           .filter((v, index) => index < 4)
-          .map(({ id, ...otherItemProps }) => (
-            <CollectionItem key={id} {...otherItemProps} />
+          .map((item) => (
+            <CollectionItem key={item.id} item={item} />
           ))}
       </div>
     </div>
