@@ -1,8 +1,11 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import { createStructuredSelector } from "reselect";
 import { ReactComponent as Logo } from "../../assets/crown.svg";
 import { auth } from "../../firebase/firebase.utils";
+import { selectCartHidden } from "../../redux/cart/cart.selectors";
+import { selectCurrentUser } from "../../redux/user/user.selectors";
 import CardIcon from "../card-icon/CardIcon.component";
 import CardDropdown from "../card/CardDropdown.component";
 import Option from "./Option.component";
@@ -34,9 +37,9 @@ function DecideSignAction(currentUser = {}, signOut) {
   return <Option to="/signin" name="SIGN IN" />;
 }
 
-const mapStateToProps = ({ user: { currentUser }, cart: { hidden } }) => ({
-  currentUser,
-  hidden,
+const mapStateToProps = createStructuredSelector({
+  currentUser: selectCurrentUser,
+  hidden: selectCartHidden,
 });
 
 export default connect(mapStateToProps)(Header);
