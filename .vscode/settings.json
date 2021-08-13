@@ -3,6 +3,7 @@
         "accumalated",
         "buttom",
         "custon",
+        "persistor",
         "quantity"
     ],
     "files.exclude": {
