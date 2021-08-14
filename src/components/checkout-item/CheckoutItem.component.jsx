@@ -7,7 +7,7 @@ import {
 } from "../../redux/cart/cart.actions";
 
 const CheckoutItem = ({ cartItem, clearItem, addItem, removeItem }) => {
-  const { name, imageUrl, quantity } = cartItem;
+  const { name, imageUrl, quantity, price } = cartItem;
   return (
     <div className="checkout-item w-full min-h-[100px] flex border-b border-subColor-700 border-solid py-[15px] px-0 text-[20px] items-center">
       <div className="image-container w-[23%] pr-[15px]">
@@ -26,6 +26,7 @@ const CheckoutItem = ({ cartItem, clearItem, addItem, removeItem }) => {
           &#10095;
         </div>
       </span>
+      <span className="name w-[23%]">${price}</span>
       <div
         className="remove-button pl-[12px] cursor-pointer"
         onClick={() => {

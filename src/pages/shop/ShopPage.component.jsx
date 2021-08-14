@@ -1,15 +1,10 @@
-import React, { useState } from "react";
-import CollectionPreview from "../../components/collection-preview/CollectionPreview.component";
-import SHOP_DATA from "./shopPage.data";
+import React from "react";
+import CollectionsOverview from "../../components/collections-overview/CollectionsOverview.component";
 
 function ShopPage() {
-  // eslint-disable-next-line
-  const [collections, setCollections] = useState(SHOP_DATA);
   return (
     <div className="shop-page">
-      {collections.map(({ id, ...collection }) => {
-        return <CollectionPreview key={id} {...collection} />;
-      })}
+      <CollectionsOverview />
     </div>
   );
 }

@@ -1,11 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
+import { connect } from "react-redux";
+import { createStructuredSelector } from "reselect";
+import { selectDirectorySection } from "../../redux/directory/directory.selectors";
 import MenuItem from "../menu-item/MenuItem.component";
-import SECTIONS_DATA from "./directory.data";
 
-function Directory() {
-  // eslint-disable-next-line
-  const [sections, setSections] = useState(SECTIONS_DATA);
-
+function Directory({ sections }) {
   return (
     <div className="flex flex-wrap justify-between w-full">
       {sections.map(({ id, ...section }) => {
@@ -15,4 +14,8 @@ function Directory() {
   );
 }
 
-export default Directory;
+const mapStateToProps = createStructuredSelector({
+  sections: selectDirectorySection,
+});
+
+export default connect(mapStateToProps)(Directory);
