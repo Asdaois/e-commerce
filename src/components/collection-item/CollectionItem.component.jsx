@@ -4,10 +4,12 @@ import { connect } from "react-redux";
 import "./collection-item.css";
 import { addItem } from "../../redux/cart/cart.actions";
 
-function CollectionItem({ item, addItem }) {
+function CollectionItem({ item, addItem, addClass }) {
   const { name, price, imageUrl } = item;
   return (
-    <div className="relative flex flex-col items-center w-1/5 collection-item h-22 group">
+    <div
+      className={`${addClass} relative flex flex-col items-center w-[22%] collection-item h-22 group gap-1`}
+    >
       <div
         className="w-full mb-1 bg-center bg-cover image h-95/100 group-hover:opacity-80"
         style={{ backgroundImage: `url(${imageUrl})` }}
