@@ -55,6 +55,7 @@ function App({ currentUser, setCurrentUser }) {
     </div>
   );
 }
+
 const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUser,
 });
