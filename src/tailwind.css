@@ -747,16 +747,12 @@ video {
   margin-left: auto;
 }
 
-.mb-\[30px\] {
-  margin-bottom: 30px;
-}
-
 .mt-10 {
   margin-top: 2.5rem;
 }
 
-.mt-\[5px\] {
-  margin-top: 5px;
+.mb-\[30px\] {
+  margin-bottom: 30px;
 }
 
 .block {

@@ -4,7 +4,8 @@
         "buttom",
         "custon",
         "persistor",
-        "quantity"
+        "quantity",
+        "webfonts"
     ],
     "files.exclude": {
         "**/.git": true,
