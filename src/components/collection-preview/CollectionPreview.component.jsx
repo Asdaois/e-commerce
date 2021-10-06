@@ -10,7 +10,7 @@ export default function CollectionPreview({ title = "", items = [] }) {
         {items
           .filter((v, index) => index < 4)
           .map((item) => (
-            <CollectionItem key={item.id} item={item} />
+            <CollectionItem key={item.id} item={item} addClass={"w-1/5"}/>
           ))}
       </div>
     </div>
