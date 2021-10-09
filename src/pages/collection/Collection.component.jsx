@@ -19,7 +19,6 @@ const CollectionPage = ({ collection }) => {
 };
 
 const mapStateToProps = (state, owsProps) => {
-  console.log(owsProps);
   return {
     collection: selectCollection(owsProps.match.params.collectionId)(state),
   };
