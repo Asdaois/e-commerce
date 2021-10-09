@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import { useParams } from "react-router";
 import CollectionItem from "../../components/collection-item/CollectionItem.component";
 import { selectCollection } from "../../redux/shop/shop.selectors";
 
@@ -18,6 +19,7 @@ const CollectionPage = ({ collection }) => {
 };
 
 const mapStateToProps = (state, owsProps) => {
+  console.log(owsProps);
   return {
     collection: selectCollection(owsProps.match.params.collectionId)(state),
   };
