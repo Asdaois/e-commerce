@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { Redirect, Route, Switch } from "react-router-dom";
 import { createStructuredSelector } from "reselect";
@@ -7,10 +7,18 @@ import Authentication from "./pages/authentication/Authentication.component";
 import Checkout from "./pages/checkout/Checkout.component";
 import Homepage from "./pages/home/Homepage.component";
 import ShopPage from "./pages/shop/ShopPage.component";
+import { checkUserSession } from "./redux/user/user.actions";
 import { selectCurrentUser } from "./redux/user/user.selectors";
 import "./tailwind.css";
 
-function App({ currentUser }) {
+function App(props) {
+  const { currentUser } = props;
+  useEffect(() => {
+    const { checkUserSession } = props;
+    checkUserSession();
+    // eslint-disable-next-line
+  }, []);
+
   return (
     <div className="px-16 py-5 font-open-condense">
       <Header />
@@ -34,4 +42,8 @@ const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUser,
 });
 
-export default connect(mapStateToProps)(App);
+const mapDispatchToProps = (dispatch) => ({
+  checkUserSession: () => dispatch(checkUserSession()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
