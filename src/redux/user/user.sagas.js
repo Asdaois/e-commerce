@@ -4,25 +4,44 @@ import {
   createUserProfileDocument,
   googleProvider,
 } from "../../firebase/firebase.utils";
-import { googleSigInFailure, googleSigInSuccess } from "./user.actions";
+import { sigInFailure, sigInSuccess } from "./user.actions";
 import { UserActionTypes } from "./user.types";
+
+export function* getSnapshotFromUserAuth(userAuth) {
+  try {
+    const userRef = yield call(createUserProfileDocument, userAuth);
+    const userSnapshot = yield userRef.get();
+    yield put(sigInSuccess({ id: userSnapshot.id, ...userSnapshot.data() }));
+  } catch (error) {
+    yield put(sigInFailure(error));
+  }
+}
 
 export function* signInWithGoogle() {
   try {
     const { user } = yield auth.signInWithPopup(googleProvider);
-    const userRef = yield call(createUserProfileDocument, user);
-    const userSnapshot = yield userRef.get();
-    yield put(googleSigInSuccess({id: userSnapshot.id, ...userSnapshot.data()}))
+    yield getSnapshotFromUserAuth(user);
   } catch (error) {
-    yield put(googleSigInFailure(error)) 
+    yield put(sigInFailure(error));
   }
-
 }
 
 export function* onGoogleSignInStart() {
   yield takeLatest(UserActionTypes.GOOGLE_SIG_IN_START, signInWithGoogle);
 }
 
+export function* signInWithEmail({ payload: { email, password } }) {
+  try {
+    const { user } = yield auth.signInWithEmailAndPassword(email, password);
+    yield getSnapshotFromUserAuth(user);
+  } catch (error) {
+    yield put(sigInFailure(error));
+  }
+}
+
+export function* onEmailSignInStart() {
+  yield takeLatest(UserActionTypes.EMAIL_SIG_IN_START, signInWithEmail);
+}
 export function* userSagas() {
-  yield all([call(onGoogleSignInStart)]);
+  yield all([call(onGoogleSignInStart), call(onEmailSignInStart)]);
 }

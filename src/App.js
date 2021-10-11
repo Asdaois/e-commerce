@@ -7,12 +7,10 @@ import Authentication from "./pages/authentication/Authentication.component";
 import Checkout from "./pages/checkout/Checkout.component";
 import Homepage from "./pages/home/Homepage.component";
 import ShopPage from "./pages/shop/ShopPage.component";
-import { setCurrentUser } from "./redux/user/user.actions";
 import { selectCurrentUser } from "./redux/user/user.selectors";
 import "./tailwind.css";
 
-function App({ currentUser, setCurrentUser}) {
-
+function App({ currentUser }) {
   return (
     <div className="px-16 py-5 font-open-condense">
       <Header />
@@ -36,8 +34,4 @@ const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUser,
 });
 
-const mapDispatchToProps = (dispatch) => ({
-  setCurrentUser: (user) => dispatch(setCurrentUser(user)),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps)(App);
