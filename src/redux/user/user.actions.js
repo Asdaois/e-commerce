@@ -6,24 +6,31 @@ export const setCurrentUser = (user) => ({
 });
 
 export const googleSigInStart = () => ({
-  type: UserActionTypes.GOOGLE_SIG_IN_START
-})
+  type: UserActionTypes.GOOGLE_SIG_IN_START,
+});
 
 export const sigInSuccess = (user) => ({
   type: UserActionTypes.SIG_IN_SUCCESS,
   payload: user,
-})
+});
 
 export const sigInFailure = (error) => ({
   type: UserActionTypes.SIG_IN_FAILURE,
-  payload: error
-})
+  payload: error,
+});
 
 export const emailSigInStart = (emailAndPassword) => ({
   type: UserActionTypes.EMAIL_SIG_IN_START,
-  payload: emailAndPassword
-})
+  payload: emailAndPassword,
+});
 
 export const checkUserSession = () => {
-  return {type: UserActionTypes.CHECK_USER_SESSION}
-}
+  return { type: UserActionTypes.CHECK_USER_SESSION };
+};
+
+export const signOutStart = () => ({ type: UserActionTypes.SIG_OUT_START });
+export const signOutSuccess = () => ({ type: UserActionTypes.SIG_OUT_SUCCESS });
+export const signOutFailure = (error) => ({
+  type: UserActionTypes.SIG_OUT_FAILURE,
+  payload: error,
+});
