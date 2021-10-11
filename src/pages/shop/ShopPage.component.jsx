@@ -2,8 +2,7 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { Route, useRouteMatch } from "react-router-dom";
 import CollectionsOverviewContainer from "../../components/collections-overview/CollectionsOverview.container";
-import { fetchCollectionsStartAsync } from "../../redux/shop/shop.actions";
-import CollectionPage from "../collection/Collection.component";
+import { fetchCollectionsStart } from "../../redux/shop/shop.actions";
 import CollectionPageContainer from "../collection/Collection.container";
 
 
@@ -11,9 +10,9 @@ function ShopPage(props) {
   const math = useRouteMatch();
 
   useEffect(() => {
-    const { fetchCollectionsStartAsync } = props;
+    const { fetchCollectionsStart } = props;
 
-    fetchCollectionsStartAsync();
+    fetchCollectionsStart();
     // eslint-disable-next-line
   }, []);
 
@@ -31,7 +30,7 @@ function ShopPage(props) {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchCollectionsStartAsync: () => dispatch(fetchCollectionsStartAsync()),
+  fetchCollectionsStart: () => dispatch(fetchCollectionsStart()),
 });
 
 export default connect(null,mapDispatchToProps)(ShopPage);

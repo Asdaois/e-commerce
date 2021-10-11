@@ -21,8 +21,8 @@ function Header({ currentUser, hidden }) {
         <Logo className="relative block m-auto logo" />
       </Link>
       <div className="flex items-center justify-end w-1/2 h-full font-thin tracking-wider options">
-        <Option to="/shop" name="SHOP" />
-        <Option to="/shop" name="CONTACT" />
+        <Option to={"/shop"} name="SHOP" />
+        <Option to={"/shop"} name="CONTACT" />
         {DecideSignAction(currentUser, signOut)}
         <CardIcon />
       </div>

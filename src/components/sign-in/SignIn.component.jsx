@@ -1,5 +1,7 @@
 import React, { useState } from "react";
-import { auth, signInWithGoogle } from "../../firebase/firebase.utils";
+import { connect } from "react-redux";
+import { auth } from "../../firebase/firebase.utils";
+import { googleSigInStart } from "../../redux/user/user.actions";
 import CustomButton from "../custon-buttom/CustomButton.component";
 import FormInput from "../form-input/FormInput.component";
 
@@ -7,7 +9,9 @@ const initialState = {
   email: "",
   password: "",
 };
-export default function SignIn() {
+
+function SignIn(props) {
+  const { googleSigInStart } = props;
   const [state, setState] = useState({ ...initialState });
 
   const handleSubmit = async (event = new Event()) => {
@@ -50,7 +54,7 @@ export default function SignIn() {
         <div className="flex justify-between">
           <CustomButton type="submit">Sign in</CustomButton>
           <CustomButton
-            onClick={signInWithGoogle}
+            onClick={googleSigInStart}
             type="button"
             isGoogleSignIn={true}
           >
@@ -61,3 +65,9 @@ export default function SignIn() {
     </div>
   );
 }
+
+const mapDispatchToProps = (dispatch) => ({
+  googleSigInStart: () => dispatch(googleSigInStart()),
+});
+
+export default connect(null, mapDispatchToProps)(SignIn);

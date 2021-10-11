@@ -1,12 +1,8 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import { Redirect, Route, Switch } from "react-router-dom";
 import { createStructuredSelector } from "reselect";
 import Header from "./components/header/Header.component";
-import {
-  auth,
-  createUserProfileDocument,
-} from "./firebase/firebase.utils";
 import Authentication from "./pages/authentication/Authentication.component";
 import Checkout from "./pages/checkout/Checkout.component";
 import Homepage from "./pages/home/Homepage.component";
@@ -16,26 +12,6 @@ import { selectCurrentUser } from "./redux/user/user.selectors";
 import "./tailwind.css";
 
 function App({ currentUser, setCurrentUser}) {
-  // Authentication Handler
-  useEffect(() => {
-    const unSubscribe = auth.onAuthStateChanged(async (userAuth) => {
-      if (userAuth) {
-        const userRef = await createUserProfileDocument(userAuth);
-        userRef.onSnapshot((snapShot) => {
-          setCurrentUser({
-            id: snapShot.id,
-            ...snapShot.data(),
-          });
-        });
-      }
-      setCurrentUser(userAuth);
-    });
-
-    return () => {
-      unSubscribe();
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
   return (
     <div className="px-16 py-5 font-open-condense">
