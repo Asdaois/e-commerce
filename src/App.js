@@ -13,6 +13,7 @@ import "./tailwind.css";
 
 function App(props) {
   const { currentUser } = props;
+
   useEffect(() => {
     const { checkUserSession } = props;
     checkUserSession();
